@@ -218,4 +218,4 @@ class GamePlay
 
 end
 
-GamePlay.new.get_user_input
+# GamePlay.new.get_user_input
