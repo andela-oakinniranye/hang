@@ -1,12 +1,12 @@
 require_relative "spec_helper"
 
-describe Display do
+describe HangMan::Display do
   before :each do
-    @disp = Display.new  
+    @disp = HangMan::Display.new  
   end
 
   it "should be an instance of the Display class" do
-    expect(@disp).to be_an_instance_of Display
+    expect(@disp).to be_an_instance_of HangMan::Display
   end
 
   describe "#main_menu" do
