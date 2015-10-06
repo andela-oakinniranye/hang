@@ -66,7 +66,7 @@ require_relative "spec_helper"
       allow(@game).to receive(:puts).and_return(nil)
       allow(Display.new).to receive(:display_save_successful).and_return(false)
       allow(@game).to receive(:save_game).and_return(true)
-      expect(@game.overall_success).to be true
+      expect(@game.save_game).to be true
     end
   end
 
