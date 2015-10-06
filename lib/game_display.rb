@@ -57,7 +57,7 @@ class Display
 
   def display_game_over 
     puts "\n"
-    puts "GAME OVER!\n"
+    puts "GAME-OVER!\n"
     puts "\nWould you like to restart? (Y/N)\n"
   end
 

@@ -2,6 +2,8 @@ require_relative 'game_display'
 
 class GamePlay
 
+  attr_reader :word, :remaining_letters,:guess
+
   def get_user_input
     Display.new.intro
     sleep 2
@@ -32,8 +34,8 @@ class GamePlay
     @word = @new_dictionary[4].chars
     @word.delete("\n")
     @remaining_letters = @word.clone
-    p @word.join
-    @lives = 4
+    # p @word.join
+    # @lives = 4
     lives
   end
 
@@ -42,7 +44,7 @@ class GamePlay
     if (@word.length) > 7
       @lives = (@word.length / 2) + 3
     else 
-      @lives
+      @lives = 4
     end
     initial_visual_update 
   end
@@ -104,7 +106,7 @@ class GamePlay
       end
   end
 
-  def input_check 
+  def input_check
     if @remaining_letters.include? (@guess)
       good_guess
     elsif /^[A-Za-z, *]$/ !~ @guess
@@ -113,17 +115,12 @@ class GamePlay
     elsif @guess == "*"
       save_quit
     else
-     failure
+     wrong_guess
     end
   end
 
 
   def good_guess
-    @word.each_with_index {|item, index|
-      if item = @guess 
-        @position = index
-      end
-    }
     @remaining_letters.delete(@guess)
     Display.new.display_good_guess
     display_lives 
@@ -131,7 +128,7 @@ class GamePlay
   end
 
 
-  def failure
+  def wrong_guess
     Display.new.display_wrong_guess
     @lives -= 1
     display_lives 
@@ -139,11 +136,11 @@ class GamePlay
   end
 
 
-  def game_over 
+  def game_over
     puts " THE CORRECT WORD IS: #{@word.join(' ')}"
     Display.new.display_game_over
-    @restart_gameover = gets.chomp.downcase.strip
-    case @restart_gameover
+    restart_gameover = gets.chomp.downcase.strip
+    case restart_gameover
       when "y" then get_user_input
       when "n" then exit
       else
@@ -155,8 +152,8 @@ class GamePlay
 
   def overall_success
     Display.new.display_good_game
-    @restart_success = gets.chomp.downcase.strip
-    case @restart_success
+    restart_success = gets.chomp.downcase.strip
+    case restart_success
       when "y" then get_user_input
       when "n" then exit
       else
