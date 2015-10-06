@@ -1,64 +1,105 @@
 class Display 
   def intro
-    puts "\n"
-    puts "    ============================="
-    puts "     --------------------------- "
-    puts "                                 "
-    puts "        WELCOME TO HANGMAN       "
-    puts "                                 "
-    puts "     --------------------------- "
-    puts "    ============================="
-    puts "\n"
+    <<-EOS
+    
+        =============================
+         --------------------------- 
+                                     
+             WELCOME TO HANGMAN   
+
+
+                +--------+
+                |        |
+                |        O
+                |       /|\\
+                |       /*\\
+                |      
+              --=------------
+    
+                                     
+         --------------------------- 
+        =============================
+   EOS
   end 
 
   def main_menu
-    puts "\n"
-    puts "\nType \"start\" to Start a new game\nType \"load\" to load a previously saved game\nAnd \"exit\" to Exit game\n"
-    sleep 1
+    <<-EOS
+
+    Type 'start' to Start a new game
+    Type 'load' to Load a previously saved game 
+    And 'exit' to Exit game
+
+    EOS
   end
 
 
   def display_good_guess
-    puts "\n CORRECT!! \n"
+    <<-EOS
+    CORRECT!!
+    EOS
   end 
 
 
   def display_wrong_guess
-    puts "\n INCORRECT! TRY AGAIN"
-    puts "\n"
+   <<-EOS
+
+    INCORRECT! TRY AGAIN!!
+
+    EOS
   end
 
 
   def display_load_successful
-   puts "\n LOAD SUCCESSFUL! \n"
+   <<-EOS
+
+    LOAD SUCCESSFUL! 
+
+    EOS
   end
 
   def display_load_failed
-    puts "\n FILE  NOT FOUND! \n"
+    <<-EOS 
+    FILE NOT FOUND! 
+    EOS
   end
 
 
   def display_save_successful
-    puts "\n SAVE SUCCESSFUL! \n"
+    <<-EOS
+
+     SAVE SUCCESSFUL!
+    
+     EOS
   end
 
 
   def display_save_menu
-    puts "\n Press 's' to save, 'l' to load, 'q' to quit and 'r' to return "
-    puts "\n"
+    <<-EOS
+     Press 's' to Save, 'l' to Load, 'q' to Quit and 'r' to Return "
+
+    EOS
   end
 
 
   def display_good_game
-    puts "\nCONGRATULATIONS! YOU HAVE WON!"
-    puts "\nWould You like to Play Again? (Y/N)"
+    <<-EOS
+
+    ****CONGRATULATIONS!!! YOU HAVE WON!******
+
+    Would You like to Play Again? (Y/N)
+
+    EOS
   end
 
 
   def display_game_over 
-    puts "\n"
-    puts "GAME-OVER!\n"
-    puts "\nWould you like to restart? (Y/N)\n"
+    <<-EOS
+
+          GAME-OVER!!!! :(
+
+    Would you like to restart? (Y/N)
+
+     EOS
   end
 
 

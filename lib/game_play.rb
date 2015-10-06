@@ -5,9 +5,9 @@ class GamePlay
   attr_reader :word, :remaining_letters,:guess
 
   def get_user_input
-    Display.new.intro
-    sleep 2
-    Display.new.main_menu
+    puts Display.new.intro
+    sleep 3
+    puts Display.new.main_menu
     user_input = gets.chomp.downcase
     case user_input
       when "start" 
@@ -93,7 +93,7 @@ class GamePlay
   end 
 
   def save_quit
-      Display.new.display_save_menu
+      puts Display.new.display_save_menu
       @save_quit = gets.strip
       case @save_quit
         when "s" then save_game
@@ -122,14 +122,14 @@ class GamePlay
 
   def good_guess
     @remaining_letters.delete(@guess)
-    Display.new.display_good_guess
+    puts Display.new.display_good_guess
     display_lives 
     visual_update
   end
 
 
   def wrong_guess
-    Display.new.display_wrong_guess
+    puts Display.new.display_wrong_guess
     @lives -= 1
     display_lives 
     visual_update
@@ -137,8 +137,8 @@ class GamePlay
 
 
   def game_over
-    puts " THE CORRECT WORD IS: #{@word.join(' ')}"
-    Display.new.display_game_over
+    puts "\n THE CORRECT WORD IS: #{@word.join(' ')}"
+    puts Display.new.display_game_over
     restart_gameover = gets.chomp.downcase.strip
     case restart_gameover
       when "y" then get_user_input
@@ -151,7 +151,7 @@ class GamePlay
 
 
   def overall_success
-    Display.new.display_good_game
+    puts Display.new.display_good_game
     restart_success = gets.chomp.downcase.strip
     case restart_success
       when "y" then get_user_input
@@ -171,7 +171,7 @@ class GamePlay
       save_game
    else 
       @save_name = @username.to_s + '.txt'
-      Display.new.display_save_successful
+      puts Display.new.display_save_successful
       save_data 
     end
   end
@@ -194,7 +194,7 @@ class GamePlay
     if File.file?("#{@load_username}"+".txt")
       load_file
     else
-      Display.new.display_load_failed
+      puts Display.new.display_load_failed
       sleep 1
       get_user_input
     end
@@ -209,7 +209,7 @@ class GamePlay
     @remaining_letters = @load_file[1].chars
     @answer = @load_file[2].chars
     @lives = @load_file[3].to_i
-    Display.new.display_load_successful
+    puts Display.new.display_load_successful
     visual_update
   end
 
