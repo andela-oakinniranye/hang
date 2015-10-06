@@ -1,7 +1,5 @@
 # Hangman
-Hangman is a word game with origins The word to guess is represented by a row of dashes, representing each letter of the word. Words you cannot use include proper nouns such as names, places, and brands. If the guessing player suggests a letter which occurs in the word, the other player writes it in all its correct positions.
-
-The word to guess is represented by a row of dashes, representing each letter of the word. Words you cannot use include proper nouns such as names, places, and brands. If the guessing player suggests a letter which occurs in the word, the other player writes it in all its correct positions.
+Hangman is a word game with unknown origins. A word is meant to be guessed and this word is represented by a row of dashes, representing each letter of the word. Words you cannot use include proper nouns such as names, places, and brands. If the guessing player suggests a letter which occurs in the word, the other player writes it in all its correct positions.
 
 Hangman is currently in its first edition and is open-source. Feel free to contribute, clone or Fork
 ## Installation
