@@ -6,53 +6,14 @@ require_relative "spec_helper"
   end
 
 
-    it "should do something" do
-      expect(@game.class).to eql(GamePlay)
-    end
-
-
-  
-
- # describe "#input_check" do
-
- #    it "throws error when instantiated with 2 or more parameters" do
- #      expect(GamePlay.new.input_check.ins).to raise_error ArgumentError
- #    end
-  # end
-  # describe "new shirt" do
-  # it "should be an instance of a Shirt object"
-  #   expect(@object).to be_a Shirt
-  # end
-
-  # describe "visual_update" do
-  #   it "acts on appropriate input" do 
-
-  # end
-
-
-
-  describe "#lives" do
-    it "acts on appropriate input" do
-      word = "derogatory"
-      allow(@game).to receive(:initial_visual_update).and_return(nil)
-      expect(@game.lives).to be_a Integer
-    end
-  end
-
-
- describe "#input_check" do
-    it "acts on appropriate input" do
-      allow(@game).to receive(:good_guess).and_return(true)
-      @game.remaining_letters
-      @game.guess
-      expect(@game.input_check).to be nil
-    end
+  it "should check if class exits" do
+    expect(@game.class).to eql(GamePlay)
   end
 
 
 
    describe "#get_user_input" do
-    it "acts on appropriate input" do
+    it "acts on the gets_user_input method" do
       allow(Display.new).to receive(:display_new_intro).and_return(nil)
       allow(@game).to receive(:sleep).and_return(nil)
       allow(Display.new).to receive(:display_main_menu).and_return(nil)
@@ -105,21 +66,6 @@ require_relative "spec_helper"
       allow(@game).to receive(:puts).and_return(nil)
       allow(Display.new).to receive(:display_save_successful).and_return(false)
       allow(@game).to receive(:save_game).and_return(true)
-      expect(@game.overall_success).to be true
-    end
-  end
-
-  describe "#save_game" do
-    it "acts on appropriate input" do
-      allow(@game).to receive(:puts).and_return(nil)
-      allow(@game).to receive(:gets).and_return(false)
-      allow(@game.gets).to receive(:chomp).and_return(nil)
-      allow(@game).to receive(:chomp).and_return(nil)
-      allow(@game).to receive(:strip).and_return(nil)
-      allow(@game).to receive(:puts).and_return(nil)
-      # allow(@game.save_name).to receive()
-      allow(Display.new).to receive(:display_save_successful).and_return(true)
-      allow(@game).to receive(:save_data).and_return(true)
       expect(@game.overall_success).to be true
     end
   end
