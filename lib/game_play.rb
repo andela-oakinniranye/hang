@@ -35,7 +35,6 @@ class GamePlay
     @word.delete("\n")
     @remaining_letters = @word.clone
     # p @word.join
-    # @lives = 4
     lives
   end
 
