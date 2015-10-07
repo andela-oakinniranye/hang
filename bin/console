@@ -12,3 +12,5 @@ require "hangman"
 
 require "irb"
 IRB.start
+
+HangMan::GamePlay.new.get_user_input
