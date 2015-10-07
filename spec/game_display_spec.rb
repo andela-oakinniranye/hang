@@ -19,7 +19,6 @@ describe HangMan::Display do
   describe "#display_good_guess" do
     it "should be a method of the Display class" do
       expect(@disp.methods.include? :display_good_guess).to eql(true)
-      # expect(@disp).to receive(:puts).and_return("CORRECT!")
       expect(@disp.display_good_guess).to include("CORRECT!")
     end
   end
@@ -27,7 +26,6 @@ describe HangMan::Display do
   describe "#display_wrong_guess" do
     it "should be a method of the Display class" do
       expect(@disp.methods.include? :display_wrong_guess).to eql(true)
-      # expect(@disp).to receive(:puts).and_return("INCORRECT! TRY AGAIN")
       expect(@disp.display_wrong_guess).to include("INCORRECT! TRY AGAIN")
     end
   end
@@ -35,7 +33,6 @@ describe HangMan::Display do
   describe "#display_load_successful" do
     it "should be a method of the Display class" do
       expect(@disp.methods.include? :display_load_successful).to eql(true)
-      # allow(@disp).to receive(:puts).and_return("SUCCESSFUL")
       expect(@disp.display_load_successful).to include("SUCCESSFUL")
     end
   end
@@ -43,7 +40,6 @@ describe HangMan::Display do
   describe "#display_load_failed" do
     it "should be a method of the Display class" do
       expect(@disp.methods.include? :display_load_failed).to eql(true)
-      # allow(@disp).to receive(:puts).and_return("LOAD FAILED")
       expect(@disp.display_load_failed).to include("FILE NOT FOUND!")
     end
   end
@@ -51,7 +47,6 @@ describe HangMan::Display do
     describe "#display_save_successful" do
     it "should be a method of the Display class" do
       expect(@disp.methods.include? :display_save_successful).to eql(true)
-      # allow(@disp).to receive(:puts).and_return("SAVE SUCCESSFUL!")
       expect(@disp.display_save_successful).to include("SAVE SUCCESSFUL!")
     end
   end
@@ -59,7 +54,6 @@ describe HangMan::Display do
   describe "#display_load_successful" do
     it "should be a method of the Display class" do
       expect(@disp.methods.include? :display_load_successful).to eql(true)
-      # allow(@disp).to receive(:puts).and_return("LOAD SUCCESSFUL!")
       expect(@disp.display_load_successful).to include("LOAD SUCCESSFUL!")
     end
   end
@@ -67,7 +61,6 @@ describe HangMan::Display do
   describe "#display_good_game" do
     it "should be a method of the Display class" do
       expect(@disp.methods.include? :display_good_game).to eql(true)
-      # allow(@disp).to receive(:puts).and_return("CONGRATULATIONS!")
       expect(@disp.display_good_game).to include("CONGRATULATIONS!")
     end
   end
@@ -75,7 +68,6 @@ describe HangMan::Display do
   describe "#display_game_over" do
     it "should be a method of the Display class" do
       expect(@disp.methods.include? :display_game_over).to eql(true)
-      # allow(@disp).to receive(:puts).and_return("GAME-OVER!")
       expect(@disp.display_game_over).to include("GAME-OVER!")
     end
   end

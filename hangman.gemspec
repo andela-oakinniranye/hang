@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["amodut@gmail.com"]
 
   spec.summary       = %q{This is the popular hangman game done in Ruby}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  # spec.description   = %q{TODO: Write a longer description or delete this line.}
+  # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

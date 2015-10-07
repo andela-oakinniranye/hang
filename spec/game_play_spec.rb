@@ -81,4 +81,15 @@ require_relative "spec_helper"
     end
   end
 
+  describe "#game_over" do
+    it "acts on appropriate input" do
+      allow(@game).to receive(:puts).and_return(nil)
+      allow(@game.word).to receive(:join).and_return("word")
+      allow(HangMan::Display.new).to receive(:display_game_over).and_return(nil)
+      allow(@game).to receive(:gets).and_return("n")
+      allow(@game).to receive(:get_user_input).and_return(nil)
+      allow(@game).to receive(:exit).and_return(nil)
+      expect(@game.game_over).to be nil
+    end
+  end
 end

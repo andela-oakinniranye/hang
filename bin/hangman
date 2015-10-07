@@ -10,7 +10,7 @@ require "game_play"
 # require "pry"
 # Pry.start
 
-require "irb"
-IRB.start
+# require "irb"
+# IRB.start
 
 HangMan::GamePlay.new.get_user_input
