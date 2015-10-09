@@ -1,5 +1,7 @@
 module HangMan  
   class Display 
+
+    attr_reader :intro, :main_menu, :display_good_guess, :display_wrong_guess, :display_load_successful, :display_load_failed, :display_good_game, 
     def intro
       <<-EOS
       
@@ -92,6 +94,15 @@ module HangMan
       EOS
     end
 
+    def display_save_continue
+      <<-EOS
+
+              SAVE SUCCESSFUL!!!
+        
+        press 'c' to Continue 'q' to quit 
+
+      EOS
+    end
 
     def display_game_over 
       <<-EOS
