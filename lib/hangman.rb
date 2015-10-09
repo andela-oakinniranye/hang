@@ -29,8 +29,6 @@ module HangMan
     def load_initial_saved_game
       puts "Checking for your game"
       sleep 1
-      # require "pry"
-      # binding.pry
       game_save_new.load_game
     end
 
@@ -190,5 +188,3 @@ module HangMan
 end
     
    
-
-# HangMan::GamePlay.new.get_user_input
