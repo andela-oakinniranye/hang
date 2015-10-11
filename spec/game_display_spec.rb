@@ -68,7 +68,7 @@ describe HangMan::Display do
   describe "#display_save_continue" do
     it "should be a method of the Display class" do
       expect(@disp.methods.include? :display_save_continue).to eql(true)
-      expect(@disp.display_good_game).to include("SAVE SUCCESSFUL!!!")
+      expect(@disp.display_save_continue).to include("SAVE SUCCESSFUL!!")
     end
   end
 
