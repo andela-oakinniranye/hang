@@ -39,7 +39,7 @@ module HangMan
 
  
     def load_libraries 
-      @dictionary_array = File.readlines("hangman/5desk.txt")
+      @dictionary_array = File.readlines("../5desk.txt")
       @dictionary_array.delete_if {|x| x.length < 6  || x.length >  14}  
       @new_dictionary = @dictionary_array.shuffle!
       @new_dictionary.map! &:downcase
@@ -97,9 +97,9 @@ module HangMan
     end
 
     def game_play
-        if @lives == 0
+        if lives == 0
         game_over
-      elsif @lives > 0 && @remaining_letters.length == 0
+      elsif lives > 0 && @remaining_letters.length == 0
         puts "THE WORD IS:  #{@word.join('')}"
         overall_success
       else
@@ -142,7 +142,7 @@ module HangMan
 
 
     def good_guess
-      @remaining_letters.delete(@guess)
+      # @remaining_letters.delete(@guess)
       puts @display.display_good_guess
       display_lives 
       visual_update

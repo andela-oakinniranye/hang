@@ -1,7 +1,10 @@
 module HangMan  
   class Display 
 
-    attr_reader :intro, :main_menu, :display_good_guess, :display_wrong_guess, :display_load_successful, :display_load_failed, :display_good_game, 
+    # attr_reader :intro, :main_menu, :display_good_guess, :display_wrong_guess, :display_load_successful, :display_load_failed, :display_good_game, 
+    
+
+
     def intro
       <<-EOS
       

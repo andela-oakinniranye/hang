@@ -27,7 +27,7 @@ module HangMan
       puts Display.new.display_save_successful
       save_continue(obj)
     end
-
+  
     def save_continue(obj = nil)
       puts Display.new.display_save_continue
       @save_continue = gets.chomp.strip
