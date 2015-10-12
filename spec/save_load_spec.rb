@@ -42,7 +42,7 @@ require_relative "spec_helper"
 
 
 
-  describe "#save_continue"
+  describe "#save_continue"do 
    it "acts on appropriate input" do
       allow(@game).to receive(:puts).and_return(nil)
       allow(@game).to receive(:gets).and_return(true)
@@ -50,15 +50,17 @@ require_relative "spec_helper"
       allow(@game).to receive(:save_game).and_return(true)
       expect(@game.save_game).to be true
     end
+  end
 
 
   
-  describe "#save_continue"
+  describe "#save_continue" do 
    it "acts on appropriate input" do
       allow(@game).to receive(:puts).and_return(nil)
       allow(@game).to receive(:gets).and_return("q")
       allow(@game).to receive(:display_save_continue).and_return(nil)
-
+    end 
+  end
 
 end 
 
