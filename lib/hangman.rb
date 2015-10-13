@@ -74,10 +74,6 @@ module HangMan
 
     def initial_visual_update
       @answer_display = '_ ' *  @word.length  
-       #Array.new(@word.length)
-      # @answer.map! do |item|
-      #   item = "_" 
-      # end
       @answer = @answer_display.split()
       p @answer_display
       game_play
