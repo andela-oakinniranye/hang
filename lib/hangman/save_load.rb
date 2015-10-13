@@ -2,6 +2,13 @@ module HangMan
 
   class SaveLoad
 
+
+    attr_reader :display
+
+    def initialize
+      @display = Display.new
+    end
+
     def save_game(obj = nil)
       puts "\nInput a custom name for your saved data\n"
       @username = gets.chomp.strip
@@ -24,12 +31,12 @@ module HangMan
         line.puts obj.answer.join(",")
         line.puts obj.lives
       end
-      puts Display.new.display_save_successful
+      puts @display.display_save_successful
       save_continue(obj)
     end
   
     def save_continue(obj = nil)
-      puts Display.new.display_save_continue
+      puts @display.display_save_continue
       @save_continue = gets.chomp.strip
       case @save_continue
         when "c" then obj.visual_update
@@ -52,7 +59,7 @@ module HangMan
 
 
     def load_failed(obj = nil)
-      puts Display.new.display_load_failed
+      puts @display.display_load_failed
       sleep 1
       obj.get_user_input
     end 

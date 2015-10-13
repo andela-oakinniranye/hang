@@ -3,10 +3,14 @@ require_relative 'hangman/save_load'
 module HangMan
   class GamePlay
     attr_reader :word, :remaining_letters, :answer, :guess, :lives, :game_save_new, :game_save, :game_save_new
+    def initialize
+      @game_save = SaveLoad.new
+      @display = Display.new
+    end 
+
+
 
     def get_user_input
-      @game_save_new = SaveLoad.new
-      @display = Display.new
       puts @display.intro
       sleep 1.5
       puts @display.main_menu
@@ -23,7 +27,7 @@ module HangMan
     def start_new_game
       puts "You can press '*' at any point to access the save and exit menu"
       sleep 1.5
-      load_libraries
+      generate_word("./lib/hangman/5desk.txt")
     end
 
     def load_initial_saved_game
@@ -38,13 +42,16 @@ module HangMan
     end
 
  
+    def generate_word(dictionary_file)
+      @word_array ||= File.readlines(dictionary_file)
+       begin 
+        @word = @word_array.sample.chomp.downcase.chars
+       end until (@word.length > 5 && @word.length < 14)
+       load_libraries
+    end 
+
+
     def load_libraries 
-      @dictionary_array = File.readlines("../5desk.txt")
-      @dictionary_array.delete_if {|x| x.length < 6  || x.length >  14}  
-      @new_dictionary = @dictionary_array.shuffle!
-      @new_dictionary.map! &:downcase
-      @word = @new_dictionary[4].chars
-      @word.delete("\n")
       @remaining_letters = @word.clone
       generate_lives
     end
@@ -66,18 +73,18 @@ module HangMan
     end
 
     def initial_visual_update
-      @answer = Array.new(@word.length)
-      @answer.map! do |item|
-        item = "_" 
-      end
-      @answer_display = @answer.join("  ")
+      @answer_display = '_ ' *  @word.length  
+       #Array.new(@word.length)
+      # @answer.map! do |item|
+      #   item = "_" 
+      # end
+      @answer = @answer_display.split()
       p @answer_display
       game_play
     end
 
 
    def load_saved_game(word_loaded, remaining_letters_loaded, answer_loaded, lives_loaded)
-      @display = Display.new
       @word = word_loaded
       @remaining_letters = remaining_letters_loaded
       @answer = answer_loaded
@@ -111,10 +118,9 @@ module HangMan
 
 
     def save_quit
-        @game_save = SaveLoad.new
         puts @display.display_save_menu
-        @save_quit = gets.strip
-        case @save_quit
+        input_save_quit = gets.downcase.strip
+        case input_save_quit
           when "s" then @game_save.save_game(self)
           when "q" then exit
           when "r" then game_play
@@ -142,7 +148,7 @@ module HangMan
 
 
     def good_guess
-      # @remaining_letters.delete(@guess)
+      @remaining_letters.delete(@guess)
       puts @display.display_good_guess
       display_lives 
       visual_update
