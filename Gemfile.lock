@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/aterris/simplecov-shield.git
+  revision: 9ab241d88cf8007e0b3a9d90fda38214d4e07ac6
+  specs:
+    simplecov-shield (0.1.0)
+      httparty
+      simplecov
+
 PATH
   remote: .
   specs:
@@ -20,9 +28,13 @@ GEM
     ffi (1.9.10-x86-mingw32)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     json (1.8.3)
     method_source (0.8.2)
     mime-types (2.6.2)
+    multi_xml (0.5.5)
     netrc (0.10.3)
     pry (0.10.1-x86-mingw32)
       coderay (~> 1.1.0)
@@ -73,6 +85,8 @@ DEPENDENCIES
   pry
   rake
   rspec
+  simplecov
+  simplecov-shield!
 
 BUNDLED WITH
    1.10.6
