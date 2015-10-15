@@ -3,10 +3,11 @@ module HangMan
   class SaveLoad
 
 
-    attr_reader :display
+    # attr_reader :display
 
-    def initialize
+    def initialize(game_play)
       @display = Display.new
+      @game_play = game_play
     end
 
     def save_game(obj = nil)
@@ -25,6 +26,8 @@ module HangMan
     end
 
     def save_data(obj = nil)
+
+      # require "pry"; binding.pry
       File.open(@save_name,'w+') do | line |
         line.puts obj.word.join(",")
         line.puts obj.remaining_letters.join(",")
@@ -53,7 +56,7 @@ module HangMan
       if File.file?("#{@load_username}"+".txt")
         load_file(obj)
       else
-        load_failed(obj)
+        load_failed(@game_play)
       end
     end
 
