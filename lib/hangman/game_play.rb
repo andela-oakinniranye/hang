@@ -1,5 +1,6 @@
 module HangMan
   class GamePlay
+
    def visual_update
       @visual = @answer
         @word.each_with_index do |letter, index|
@@ -13,10 +14,10 @@ module HangMan
 
     def game_play
         if lives == 0
-        game_over
-      elsif lives > 0 && @remaining_letters.length == 0
-        puts "THE WORD IS:  #{@word.join('')}"
-        overall_success
+        @win_lose.game_over
+      elsif lives > 0 && remaining_letters.length == 0
+        puts "THE WORD IS:  #{word.join('')}"
+        @win_lose.overall_success
       else
         puts "\nGuess a letter"
         @guess = gets.chomp.downcase.strip
@@ -30,9 +31,11 @@ module HangMan
         input_save_quit = gets.downcase.strip
         case input_save_quit
           when "s" then @game_save.save_game(self)
+            # when "s" then @game_save.save_game(self)
           when "q" then exit
           when "r" then game_play
           when "l" then @game_save.load_game
+            # when "l" then @game_save.load_game
           else 
             puts "\n Invalid Input, Try again"
             save_quit
@@ -54,7 +57,6 @@ module HangMan
     end
 
 
-
     def good_guess
       @remaining_letters.delete(@guess)
       puts @display.display_good_guess
@@ -71,32 +73,6 @@ module HangMan
       visual_update
     end
 
-
-
-    def game_over
-      puts "\n THE CORRECT WORD IS: #{@word.join(' ')}"
-      puts @display.display_game_over
-      restart_gameover = gets.chomp.downcase.strip
-      case restart_gameover
-        when "y" then get_user_input
-        when "n" then exit
-        else
-          puts "invalid entry, try again"
-          game_over
-      end
-    end
-
-
-    def overall_success
-      puts @display.display_good_game
-      restart_success = gets.chomp.downcase.strip
-      case restart_success
-        when "y" then get_user_input
-        when "n" then exit
-        else
-          puts "invalid entry, try again"
-          game_over      
-      end
-    end
   end
+
 end

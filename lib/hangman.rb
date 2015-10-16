@@ -2,14 +2,16 @@ require_relative 'hangman/game_display'
 require_relative 'hangman/save_load'
 require_relative 'hangman/dictionary'
 require_relative 'hangman/game_play'
+require_relative 'hangman/win_lose'
 
 module HangMan
   class GamePlay
-    attr_reader :word, :remaining_letters, :answer, :guess, :lives, :game_save_new, :game_save, :game_save_new 
+    attr_accessor :word, :remaining_letters, :visual, :answer, :guess, :lives, :game_save, :answer_display, :win_lose
     def initialize
       @game_save = SaveLoad.new(self)
       @display = Display.new
       @dictionary = Dictionary.new
+      @win_lose = WinLose.new(self, @display)
     end 
 
     def get_user_input
@@ -38,7 +40,7 @@ module HangMan
     def load_initial_saved_game
       puts "Checking for your game"
       sleep 1
-      @game_save.load_game
+      game_save.load_game
     end
 
 
@@ -49,15 +51,15 @@ module HangMan
 
 
     def generate_remaining_letters
-        @remaining_letters = @word.clone
-       generate_lives
+      @remaining_letters = @word.clone
+      generate_lives
     end
 
 
     def generate_lives
    
-      if (@word.length) > 7
-        @lives = (@word.length / 2) + 3
+      if (word.length) > 7
+        @lives = (word.length / 2) + 3
       else 
         @lives = 4
       end
