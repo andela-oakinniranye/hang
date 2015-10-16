@@ -11,4 +11,4 @@ require_relative "../lib/hangman.rb"
 require_relative "../lib/hangman/win_lose.rb"
 
 
-# SimpleCov.formatter = SimpleCov::Formatter::ShieldFormatter
+SimpleCov.formatter = SimpleCov::Formatter::ShieldFormatter
