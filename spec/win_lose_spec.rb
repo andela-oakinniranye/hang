@@ -1,7 +1,7 @@
 require_relative "spec_helper"
 
   describe HangMan::WinLose do
-     let(:game_play) { HangMan::GamePlay.new }
+    let(:game_play) { HangMan::GamePlay.new }
     let(:display) { HangMan::Display.new }
     let(:save_load) { HangMan::SaveLoad.new(@game)}
     let(:game) {HangMan::WinLose.new(game_play, display)}

@@ -17,8 +17,5 @@ module HangMan
       word
     end 
 
-    def word_array
-      @@word_array
-    end
   end
 end
